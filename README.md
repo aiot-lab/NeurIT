@@ -32,7 +32,7 @@ We use AgileX Tracer-Mini for the robot’s territory.
 
 <img src="./photo/system-setup.png" width="200">
 
-We build up a workspace for ROS to collect the IMU data and the ground truth (FAST-LIO). You can download the worksapce via this link [System Setup](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/zhengxz_connect_hku_hk/Et4Ulg7kTCtLg0HQ4Jju4l4BKtbijjz8a2pZTyV1s4vUyg?e=HBmFEg). For instance, we costomize a ROS topic `imu_all` to publish the data we want to collect. You can follow the following file in the workspace for data collection: `/mid360_ws/src/imu/serial_imu/scripts/subscriber.py`
+We build up a workspace for ROS to collect the IMU data and the ground truth (FAST-LIO). You can download the worksapce via this link [System Setup](https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4W8VfdDVBtGkKPwMhKYnAtUQks3N1dSR1MwTVM4ODQ3MkxLRlFBMFVNOS4u). For instance, we costomize a ROS topic `imu_all` to publish the data we want to collect. You can follow the following file in the workspace for data collection: `/mid360_ws/src/imu/serial_imu/scripts/subscriber.py`
 
 ## 2. Dataset
 
@@ -40,7 +40,7 @@ To verify the effectiveness of our proposed ***TF-BRT***, we collect NeurIT data
 
 <img src="./photo/topview.png" width="600">
 
-Training, validation, and test seen sets are collected in Building A (floor 1 & floor 5). Test unseen set is collected in Building B and Building C. NeurIT dataset contains 110 sequences, totaling around 15 hours of tracking data that corresponds to a travel distance of about 33.7 km. Each sequence of data lasts 6∼10 minutes. You can download the dataset via this link [NeurIT Dataset](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/zhengxz_connect_hku_hk/EklNzHoM0VxAuRohKYaYeRsBb-DPZP1ly5WMzMMnSGxZ-Q?e=bM6Hge).
+Training, validation, and test seen sets are collected in Building A (floor 1 & floor 5). Test unseen set is collected in Building B and Building C. NeurIT dataset contains 110 sequences, totaling around 15 hours of tracking data that corresponds to a travel distance of about 33.7 km. Each sequence of data lasts 6∼10 minutes. You can download the dataset via this link [NeurIT Dataset](https://forms.office.com/Pages/ResponsePage.aspx?id=dY4N6LlSOUijWIeruTs1Z4W8VfdDVBtGkKPwMhKYnAtUQks3N1dSR1MwTVM4ODQ3MkxLRlFBMFVNOS4u).
 
 The file includes `original_data`, `uniform_data`, and `data_gen_neurit.py`. You can use `data_gen_neurit.py` file to convert `original_data` to the `uniform_data`. The data pre-processing methods include time synchronization, and coordinate system transformation. The `original_data` contains the raw data collected from IMU and the ground truth. The data format is given below:
 
