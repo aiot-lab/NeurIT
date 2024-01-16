@@ -60,3 +60,46 @@ pose
 ```
 
 When you want to train ***TF-BRT***, please use the data in `uniform_data`.
+
+## 3. TF-BRT (Time-Frequency Block-Recurrent Transformer)
+
+You could download or git clone this repository to test the performance of **TF-BRT**. It contains three steps for training and evaluation.
+
+1. Configuration
+2. Training
+3. Testing
+
+#### 3.1 Configuration
+
+All of the hyperparameters, model path, data path are defined in `tf-brt/source/config.py` for convenience, as you donnot have to type in anything in the command line.
+
+Please download the NeurIT dataset to the folder, and fill in necessary path information before ***training***. The following setting code is for your reference.
+
+```python
+DATASET = "neurit" # Dataset name
+MODEL_TYPE = "tf-brt"
+DATA_DIR = './NeurIT Dataset/uniform_data/train_dataset' # Dataset directory for training
+VAL_DATA_DIR = './NeurIT Dataset/uniform_data/val_dataset' # Dataset directory for validation
+TEST_DIR = './NeurIT Dataset/uniform_data/test_seen' # Dataset directory for testing (test_seen & test_unseen)
+OUT_DIR = './prediction_model/neurit/test1' # Output directory for both traning and testing
+```
+
+Please go through `config.py` file scrupulously before entering the training stage. Feel free to adjust the hyperparameters if you like.
+
+#### 3.2 Training
+
+After everthing is done, you can type in `python tf-brt.py --mode train` in your command line for training. The **checkpoints** will be stored in the `OUT_DIR` defined in the `config.py` file.
+
+#### 3.3 Testing
+
+In NeurIT dataset, we have `test_seen` and `test_unseen` datasets. For begin with, you need to change the setting for `TEST_DIR`, `OUT_DIR`, and `MODEL_PATH`.
+
+The following setting code is for your reference (`test_seen`):
+
+```python
+TEST_DIR = './NeurIT Dataset/uniform_data/test_seen' # Dataset directory for testing (test_seen & test_unseen)
+OUT_DIR = './NeurIT/tf-brt/result/neurit/test1/seen' # Output directory for both traning and testing
+MODEL_PATH = './NeurIT/tf-brt/prediction_model/neurit/test1/checkpoints/checkpoint.pt' # Model path for testing
+```
+
+Then, the testing results, including trajectory visualizations, and four evaluation metrics (ATE, RTE, PDE, AYE), will be recorded in the output file. Please refer to the paper for more details about the evaluation metrics.

@@ -37,7 +37,7 @@ DATASET = "neurit" # Dataset name
 MODEL_TYPE = "tf-brt"
 DATA_DIR = './NeurIT Dataset/uniform_data/train_dataset' # Dataset directory for training
 VAL_DATA_DIR = './NeurIT Dataset/uniform_data/val_dataset' # Dataset directory for validation
-TEST_DIR = './NeurIT Dataset/uniform_data/test_seen' # Dataset directory for testing (unseen_subjects_test_set)
+TEST_DIR = './NeurIT Dataset/uniform_data/test_seen' # Dataset directory for testing (test_seen & test_unseen)
 OUT_DIR = './prediction_model/neurit/test1' # Output directory for both traning and testing
 MODEL_PATH = './prediction_model/' # Model path for testing
 ### ------------------ ###
