@@ -4,7 +4,7 @@ This repository contains the system set up for NeurIT, the self-built dataset, a
 
 ## 1. System Setup
 
-To collect robotic tracking data, my collaborator helped built up a customized robotic system. As shown in the following picture, the system is composed of six parts:
+To collect robotic tracking data, we built up a customized robotic system. As shown in the following picture, the system is composed of six parts:
 
 **1) CH110 IMU**
 
@@ -63,7 +63,21 @@ When you want to train ***TF-BRT***, please use the data in `uniform_data`.
 
 ## 3. TF-BRT (Time-Frequency Block-Recurrent Transformer)
 
-You could download or git clone this repository to test the performance of **TF-BRT**. It contains three steps for training and evaluation.
+### 3.1 Clone the repo to your local device
+You could download or git clone this repository to test the performance of **TF-BRT**.
+```bash
+git clone https://github.com/aiot-lab/NeurIT.git
+```
+
+### 3.2 Set up Conda environment
+Create Conda environment for convenient start:
+```bash
+conda env create -n neurit -f neurit.yaml
+```
+
+### 3.3 Run TF-BRT
+
+It contains three steps for training and evaluation.
 
 1. Configuration
 2. Training
@@ -71,7 +85,7 @@ You could download or git clone this repository to test the performance of **TF-
 
 #### 3.1 Configuration
 
-All of the hyperparameters, model path, data path are defined in `tf-brt/source/config.py` for convenience, as you donnot have to type in anything in the command line.
+All of the hyperparameters, model path, data path are defined in `tf-brt/source/config.py` for convenience, as you donot have to type in anything in the command line.
 
 Please download the NeurIT dataset to the folder, and fill in necessary path information before ***training***. The following setting code is for your reference.
 
@@ -88,11 +102,16 @@ Please go through `config.py` file scrupulously before entering the training sta
 
 #### 3.2 Training
 
-After everthing is done, you can type in `python tf-brt.py --mode train` in your command line for training. The **checkpoints** will be stored in the `OUT_DIR` defined in the `config.py` file.
+After everthing is done, you can type in:
+```bash
+python tf-brt.py --mode train
+```
+in your command line for training.
+The **checkpoints** will be stored in the `OUT_DIR` defined in the `config.py` file.
 
 #### 3.3 Testing
 
-In NeurIT dataset, we have `test_seen` and `test_unseen` datasets. For begin with, you need to change the setting for `TEST_DIR`, `OUT_DIR`, and `MODEL_PATH`.
+In NeurIT dataset, we have `test_seen` and `test_unseen` datasets. To begin with, you need to change the setting for `TEST_DIR`, `OUT_DIR`, and `MODEL_PATH`.
 
 The following setting code is for your reference (`test_seen`):
 
@@ -100,6 +119,11 @@ The following setting code is for your reference (`test_seen`):
 TEST_DIR = './NeurIT Dataset/uniform_data/test_seen' # Dataset directory for testing (test_seen & test_unseen)
 OUT_DIR = './NeurIT/tf-brt/result/neurit/test1/seen' # Output directory for both traning and testing
 MODEL_PATH = './NeurIT/tf-brt/prediction_model/neurit/test1/checkpoints/checkpoint.pt' # Model path for testing
+```
+
+Then run the following command in the command line:
+```bash
+python tf-brt.py --mode test
 ```
 
 Then, the testing results, including trajectory visualizations, and four evaluation metrics (ATE, RTE, PDE, AYE), will be recorded in the output file. Please refer to the paper for more details about the evaluation metrics.
